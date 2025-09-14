@@ -33,13 +33,7 @@
     "windows": {
       "allowDowngrades": true,
       "nsis": {
-        "installMode": "perMachine",
-        "languages": [
-          "en-US",
-          "es-ES",
-          "fr-FR",
-          "de-DE"
-        ]
+        "installMode": "perMachine"
       },
       "signCommand": null,
       "timestampUrl": null,
