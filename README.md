@@ -139,4 +139,4 @@ Si la app se cierra con panic por datos corruptos en el store:
 MIT. Si usas este código para algo productivo, añade mención y endurece seguridad.
 
 ---
-¿Necesitas que genere scripts de limpieza, un componente para logs o empaquetado avanzado (MSIX)? Pídelo y lo agrego.
+
