@@ -1,6 +1,5 @@
 mod tray;
 mod windows_events;
-use windows_events::windows_events;
 use serde::{Deserialize, Serialize};
 use serde_json::{from_value, to_value};
 use std::os::windows::process::CommandExt;
@@ -14,10 +13,12 @@ use std::{
 };
 use tauri::AppHandle;
 use tauri::{Manager, State, Wry};
+use tauri_plugin_autostart::ManagerExt;
 use tauri_plugin_notification::NotificationBuilder;
 use tauri_plugin_notification::NotificationExt;
 use tauri_plugin_store::{Store, StoreExt};
 use tray::setup_tray;
+use windows_events::windows_events;
 static IS_AUTH: AtomicBool = AtomicBool::new(true);
 #[derive(Debug, Serialize)]
 struct HostedNetworkSettings {
@@ -320,6 +321,8 @@ pub fn run() {
             let window = app.get_webview_window("main").unwrap();
             windows_events(&app.handle(), &window)?;
             setup_tray(&app.handle())?;
+            let autostart_manager = app.autolaunch();
+            let _ = autostart_manager.enable();
             let store = app.store("app_data.json").unwrap();
             if store.get("usuario").is_none() {
                 store.set("usuario", to_value(User::new("svhg", "svhg54321")).unwrap());
