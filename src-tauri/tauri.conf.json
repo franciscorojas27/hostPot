@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "hostpot",
+  "version": "0.1.0",
+  "identifier": "com.franc.hostpot",
+  "build": {
+    "beforeDevCommand": "bun run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "bun run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "center": true,
+        "title": "hostpot",
+        "width": 400,
+        "height": 700,
+        "maxHeight": 700,
+        "maxWidth": 400,
+        "resizable": false,
+        "fullscreen": false,
+        "maximizable": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "windows": {
+      "allowDowngrades": true,
+      "nsis": {
+        "installMode": "perMachine",
+        "languages": [
+          "en-US",
+          "es-ES",
+          "fr-FR",
+          "de-DE"
+        ]
+      },
+      "signCommand": null,
+      "timestampUrl": null,
+      "tsp": false,
+      "webviewInstallMode": {
+        "type": "offlineInstaller",
+        "silent": true
+      }
+    },
+    "shortDescription": "App to create host wifi with netsh",
+    "copyright": "Francisco Rojas all rights reserved.",
+    "longDescription": "App to create host wifi with netsh",
+    "category": "public.app-category.utilities",
+    "license": "MIT",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}
